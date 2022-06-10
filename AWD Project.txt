@@ -1,0 +1,147 @@
+import React, {useState} from 'react';
+import Radium from 'radium';
+
+import Img1 from './Images/Img1.jpg'
+import Img3 from './Images/Img3.jpg'
+
+
+
+function Mix(){
+    const [Color,setColor]=useState("red");
+    const[style,setStyle]=useState();
+    const[count, setCount]=useState(0);
+    const[style2,setStyle2]=useState({display:"none"});
+    const [style1,setStyle1]=useState({
+        color:"black",
+        backgroundColor:"white"
+    });
+   
+    const [btntext,setBtntext]=useState("Enable Dark Mode")
+    const toggleStyle=()=>{
+        if(style1.color=="black"){
+            setStyle1({
+                color:"white",
+                
+            })
+            document.body.style.backgroundColor="black";
+            document.body.style.border="2px solid white";
+          
+            alert("You are Entering in Dark Mode")
+            setBtntext("Enable Light Mode")
+        }else{
+            setStyle1({
+                color:"black",
+                backgroundColor:"white",
+            })
+           
+            document.body.style.border="2px solid black";
+            document.body.style.backgroundColor="white";
+            alert("You are Entering in Light Mode")
+            setBtntext("Enable Dark Mode")
+        }
+    }
+    const mystyle={
+        width:"550px",
+        height:"400px",
+        marginLeft:"80px",
+        marginTop:"30px",
+        display:"inline-block",
+        border:"2px solid white",
+    }
+    const mystyle1={
+        width:"550px",
+        height:"400px",
+        border:"2px solid white", 
+        display:"inline-block",
+    }
+    
+    const mystyle10={
+        backgroundColor:"blue",
+        color:"white",
+        borderRadius:"20px",
+        border:"none",
+        marginLeft:"20px",
+        marginTop:"50px"
+    }
+    const mystyle11={
+      backgroundColor:"yellow",
+      color:"golden",
+      borderRadius:"20px",
+      border:"none",
+  }
+  const mystyle21={
+      backgroundColor:"red",
+      color:"white",
+      borderRadius:"20px",
+      border:"none",
+  }
+  const showMessage=()=>{
+     alert("hello")
+  }
+  const imagStyle={
+      width:"1100px",
+      height:"400px",
+      marginLeft:"85px",
+      marginTop:"80px",
+
+      ":hover":{
+      
+
+        
+        
+       }
+  }
+
+return(
+    <div style={style1}>
+
+    <div style={{backgroundColor:"black",color:"white"}}>
+        <h2 style={{marginLeft:"40%"}} >Your Tour And Tourism...</h2>
+    </div>
+
+        <div style={{marginLeft:"55px",marginTop:"-10px",backgroundColor:"black",position:"fixed"}}>
+        <button style={{backgroundColor:"black"}} onClick={()=>{setStyle2("")}}><h3 style={{display:"inline-block",marginLeft:"25px",color:"white"}}>Favourities</h3></button>
+            <h3 style={{display:"inline-block",marginLeft:"25px",color:"white"}}>Recommended Places</h3>
+            <button onClick={toggleStyle} style={{display:"inline-block",marginLeft:"650px",backgroundColor:"black",borderRadius:"4px",color:"white",width:"150px",height:"40px"}}>{btntext}</button>
+
+        </div>
+
+
+        <div>
+            <div style={{position:"absolute",top:"150px",left:"120px"}}>
+        <p><b><i>VenueLook, India's largest Venue Discovery and Booking platform with all kinds of event planning services.</i></b></p>
+        <p><b><i> VenueLook provides event services for wedding</i></b></p>
+        <p><b><i>Online Banquet Hall Booking in India.Check availability online & Book venues for Wedding, Party, </i></b></p>
+        <p><b><i>Conference, Reception, Engagement,Birthday Party,</i></b></p>
+        </div>
+        <img src={"./rotate1.jpg"} style={imagStyle}/>
+
+        </div>
+        <div>
+       
+        <img src={Img1} style={mystyle}/>
+       
+        <img src={"./Img2.jpg"} style={mystyle1}/>
+        
+        <img src={"./Pic1.jpg"} style={mystyle}/>
+            <img src={Img3} style={mystyle1}/>
+        
+    
+  
+    
+
+    </div>
+   
+    <div style={{marginLeft:"50px",display:style2}}>
+    <img src="./fav2.jpg" style={{width:"500px",height:"300px",display:"inline-block"}}/>
+    <h2 style={{display:"inline-block"}}>View of <strong>SHIMLA</strong></h2>
+    <p style={{display:"inline-block"}}>Book Now and get discounts upto <strong>30%</strong></p>
+
+    <img src="./fav1.jpg" style={{width:"500px",height:"300px",marginLeft:"25px"}}/>
+
+    </div>
+    </div>
+)
+//to insert image as html so we have to put image in public folder
+}
+export default Radium(Mix);
